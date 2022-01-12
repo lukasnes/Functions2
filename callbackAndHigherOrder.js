@@ -6,15 +6,12 @@
 */
 
 // CODE HERE
+const multiply = (num1, num2, func) => func(num1 * num2)
 
 
-// UNCOMMENT THE FUNCTION CALL BELOW
-// RUN THIS FILE WITH NODE
-// CHECK YOUR ANSWER
-
-// multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
-// })
+multiply(4, 3, answer => {
+  console.log('The answer is ' + answer) //should console.log 12
+})
 
 
 
@@ -36,15 +33,14 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
-
-
+let first = (arr, func) => func(arr[0])
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// first(names, firstName => {
-//   console.log('The first name in names is ' + firstName)
-// })
+first(names, firstName => {
+  console.log('The first name in names is ' + firstName)
+})
 
 
 
@@ -56,15 +52,15 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+let last = (arr, func) => func(arr[arr.length - 1])
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 
 
@@ -78,19 +74,20 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
+let contains = (arr, name, func) => func(arr.includes(name))
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if (result === true) {
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 
 
@@ -103,7 +100,20 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+let unique = (arr, func) => {
+    for(i = 0;i < arr.length;i++){
+      for(j = arr.length -1;j >= 0;j--){
+        if(arr[i] === arr[j] && i !== j){
+          arr.splice(j,1)
+        }
+      }
+  }
+  func(arr)
+}
 
+unique(names, noDupes => {
+  console.log(`The new names array with all the duplicate items removed is ${noDupes}`)
+})
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
   The callback function should take in one parameter called uniqArr.
@@ -180,7 +190,7 @@ var users = [
 
 /*
   You'll be writing a higher order function that returns
-  another function. 
+  another function.
 
   Create a function called addingFactory that takes in
   one parameter (it will be a number).
@@ -196,12 +206,12 @@ var users = [
 
 /*
   Now that you have addingFactory, you can create other
-  functions from it. 
+  functions from it.
 
   You're going to invoke addingFactory and save the result
-  to a new variable. 
+  to a new variable.
 
-  Create a variable called addTen and set it equal to 
+  Create a variable called addTen and set it equal to
   the invocation of addingFactory passing in the number
   10 as an arguemnt.
 */
@@ -209,7 +219,7 @@ var users = [
 // CODE HERE
 
 /*
-  Now the inner function is stored in the addTen variable! 
+  Now the inner function is stored in the addTen variable!
 
   Call the addTen function passing in another number and
   console log the result.
@@ -221,11 +231,11 @@ var users = [
 // CODE HERE
 
 /*
-  Let's make another function from the addingFactory. 
+  Let's make another function from the addingFactory.
 
   This time, pass in your favorite number and name
   the variable addNUMBER with the name of the number
-  you chose. 
+  you chose.
 
   Once you create that, you can invoke the function
   to add any number to your favorite number!
